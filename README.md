@@ -119,4 +119,4 @@ This project demonstrates:
 
 ## 👨‍💻 Author-JUI
 
-Developed as part of a Web Development project.
+Developed as part of a Web Development project for semester 2 sprint 1.
