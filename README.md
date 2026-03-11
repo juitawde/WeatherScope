@@ -91,14 +91,8 @@ The dashboard currently displays weather data for the following cities:
 ---
 
 ## 📂 Project Structure
-│
-├── index.html
-├── style.css
-├── script.js
-├── assets/
-│   ├── images
-│   └── icons
-└── README.md
+
+<img width="436" height="191" alt="Screenshot 2026-03-11 at 3 53 58 PM" src="https://github.com/user-attachments/assets/3e7a8f33-928e-41e4-a79f-2543422d723b" />
 
 ---
 
@@ -124,6 +118,6 @@ This project demonstrates:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Author-JUI
 
 Developed as part of a Web Development project.
