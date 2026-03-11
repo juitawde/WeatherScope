@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Intelligence Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="clouds"></div>
+
+  <header class="hero">
+    <div class="hero-left">
+      <h1>WeatherScope</h1>
+      <p>Live Multi-City Weather Aggregation & Analytics</p>
+      <br>
+      <div class="hero-buttons">
+        <button id="fetchBtn">Fetch Weather Data</button>
+        <button id="themeBtn">Toggle Theme</button>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="circle avg">
+        <h2>--°C</h2><span>Average</span>
+      </div>
+      <div class="circle high">
+        <h2>--°C</h2><span>Highest</span>
+      </div>
+      <div class="circle low">
+        <h2>--°C</h2><span>Lowest</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="main-grid">
+    <section class="cities-section">
+      <h2>City-Wise Temperatures</h2>
+      <br>
+      <div class="cities">
+        <div class="city-card">
+          <img src="https://plus.unsplash.com/premium_photo-1681550093390-14477e7b196a?q=80&w=1740&auto=format&fit=crop"
+            alt="Mumbai" class="city-img">
+          <h3>Mumbai</h3>
+          <div class="temp">--°C</div>
+        </div>
+        <div class="city-card">
+          <img src="https://images.unsplash.com/photo-1592639296346-560c37a0f711?q=80&w=1740&auto=format&fit=crop"
+            alt="delhi" class="city-img">
+          <h3>Delhi</h3>
+          <div class="temp">--°C</div>
+        </div>
+        <div class="city-card">
+          <img src="https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?q=80&w=1674&auto=format&fit=crop"
+            alt="kolkata" class="city-img">
+          <h3>Kolkata</h3>
+          <div class="temp">--°C</div>
+        </div>
+        <div class="city-card">
+          <img
+            src="https://images.unsplash.com/photo-1655322126436-9dd898d4a636?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="bangalore" class="city-img">
+          <h3>Bangalore</h3>
+          <div class="temp">--°C</div>
+        </div>
+        <div class="city-card">
+          <img src="https://images.unsplash.com/photo-1661366698983-3cb843219300?q=80&w=1932&auto=format&fit=crop"
+            alt="chennai" class="city-img">
+          <h3>Chennai</h3>
+          <div class="temp">--°C</div>
+        </div>
+      </div>
+    </section>
+    <section class="map-section">
+      <h2>Locations-Map</h2>
+      <div id="map"></div>
+    </section>
+  </section>
+
+  <section class="media-section">
+    <!-- LEFT GRID ITEM: Chart -->
+    <div class="media-column">
+      <section class="chart-heading">
+        <h2>Temperature Chart</h2>
+      </section>
+      <div class="glass-box">
+        <canvas id="weatherChart"></canvas>
+      </div>
+    </div>
+    <div class="media-column">
+      <h2>Related Videos</h2>
+      <div class="video-carousel">
+        <button class="prev">&lt;</button>
+        <div class="videos-wrapper">
+          <div class="video-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/APeBaNMOrDw?si=b5c00-w1xr4ydvSp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="video-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/5mqOVn09-b0?si=9Ce4AifKAsiEtMy2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="video-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/MLlzpGjpiE4?si=daxYyQztFA_R3cKj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="video-slide"><iframe width="560" height="315" src="https://www.youtube.com/embed/RW_7ohrIBZs?si=Pduyc_63LgaXWljO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+        <button class="next">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="news">
+    <h2>Related News Articles</h2>
+    <br>
+    <br>
+    <div class="news-grid">
+      <div class="news-card">
+        <a href="https://maharashtratimes.com/maharashtra/mumbai-news/maharashtra-weather-3-march-2026-mumbai-to-witness-intense-heat-on-dhulivandan/articleshow/128958208.cms"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=800&auto=format&fit=crop">
+          </div>
+          <div class="news-content">
+            <h4>Mumbai Heat Wave Conditions Rise</h4>
+            <span>Maharashtra Times • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+      <div class="news-card">
+        <a href="https://navbharattimes.indiatimes.com/india/weather-today-forecast-03-march-rain-alert-on-holi-thunderstorms-expected-temperatures-to-rise-in-north-india/articleshow/128957286.cms"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=800&auto=format&fit=crop">
+          </div>
+          <div class="news-content">
+            <h4>Holi Rain Alert in 5 States</h4>
+            <span>Navbharat Times • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+      <div class="news-card">
+        <a href="https://timesofindia.indiatimes.com/life-style/travel/news/lunar-eclipse-on-march-3-2026-where-and-how-to-watch-the-rare-red-blood-moon-across-india-best-cities-and-timings/articleshow/128958612.cms"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=800&auto=format&fit=crop">
+          </div>
+          <div class="news-content">
+            <h4>Rare Blood Moon Visible in India</h4>
+            <span>Times of India • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+      <div class="news-card">
+        <a href="https://www.business-standard.com/india-news/imd-heatwave-warning-march-2026-above-normal-heatwave-days-india-126030100096_1.html"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop">
+          </div>
+          <div class="news-content">
+            <h4>IMD Warns of Above-Normal Heatwave</h4>
+            <span>Business Standard • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+      <div class="news-card">
+        <a href="https://timesofindia.indiatimes.com/city/chandigarh/winter-puts-on-march-ing-shoes-mercury-in-chandigarh-nears-30c/articleshow/128962772.cms"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxnl9Bs4nK0AQDRoiKv_EtGJ3fV5zRN0I2Ng&s">
+          </div>
+          <div class="news-content">
+            <h4>Chandigarh Nears 30°C</h4>
+            <span>Times of India • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+      <div class="news-card">
+        <a href="https://www.hindustantimes.com/india-news/weather-update-india-heatwave-forecast-march-2026-101677890000000.html"
+          target="_blank">
+          <div class="news-thumb">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=800&auto=format&fit=crop">
+          </div>
+          <div class="news-content">
+            <h4>India Heatwave Update March 2026</h4>
+            <span>Hindustan Times • Mar 2026</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    </div>
+  </section>
+  <br>
+  <br>
+  <br>
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- LEFT SIDE: About + Logo + Social -->
+      <div class="footer-about">
+        <h3 class="footer-logo">WeatherScope</h3>
+        <p>
+          Real-time weather insights, forecasts, and live updates across major Indian cities.
+          Stay informed. Stay prepared.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#map">Weather Map</a></li>
+          <li><a href="#news">Latest News</a></li>
+          <li><a href="#">Live Updates</a></li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Contact -->
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: support@weatherscope.com</p>
+        <p>Location: India</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      © 2026 WeatherScope | All rights reserved
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
