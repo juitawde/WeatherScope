@@ -4,6 +4,9 @@ A modern **Weather Data Aggregator Dashboard** that fetches real-time weather in
 
 This project demonstrates **API integration, asynchronous JavaScript, and data visualization** using modern web technologies.
 
+🚀 LIVE DEMO: 
+https://juitawde.github.io/WeatherScope/
+
 ---
 
 ## 🚀 Features
