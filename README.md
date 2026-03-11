@@ -80,13 +80,8 @@ The dashboard currently displays weather data for the following cities:
 ---
 
 ## 📊 Data Structure Example
-{
-  cities: ["Mumbai", "Delhi", "Kolkata", "Bangalore", "Chennai"],
-  temperatures: [29, 31, 28, 26, 30],
-  average: 28.8,
-  highest: 31,
-  lowest: 26
-}
+
+<img width="579" height="151" alt="Screenshot 2026-03-11 at 3 55 52 PM" src="https://github.com/user-attachments/assets/dfe87f79-068e-4599-bdc1-8e53d1c58ff0" />
 
 ---
 
