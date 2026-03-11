@@ -48,6 +48,7 @@ https://juitawde.github.io/WeatherScope/
 <img width="1470" height="956" alt="Screenshot 2026-03-06 at 6 20 39 PM" src="https://github.com/user-attachments/assets/beed3ad2-1c2f-49b8-bf84-87d8df9ce114" />
 <img width="1470" height="956" alt="Screenshot 2026-03-06 at 6 21 58 PM" src="https://github.com/user-attachments/assets/93a37536-2dbb-494e-8df7-25a3595763a6" />
 <img width="1470" height="956" alt="Screenshot 2026-03-06 at 6 22 26 PM" src="https://github.com/user-attachments/assets/a19dedaa-cf5f-4290-a979-a18d2158b7ed" />
+<img width="1470" height="956" alt="Screenshot 2026-03-06 at 6 23 49 PM" src="https://github.com/user-attachments/assets/4b619b30-70de-4a1f-a218-30b1a9437b41" />
 
 ---
 
