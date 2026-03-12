@@ -7,11 +7,6 @@ body {
   overflow-x: hidden;
   background-size: 400% 400%;
   animation: gradientMove 15s linear infinite;
-  /* CLOUD IMAGES */
-  --cloud1: url("https://pngimg.com/uploads/cloud/cloud_PNG5.png");
-  --cloud2: url("https://pngimg.com/uploads/cloud/cloud_PNG4.png");
-  --cloud3: url("https://pngimg.com/uploads/cloud/cloud_PNG19.png");
-  --cloud4: url("https://pngimg.com/uploads/cloud/cloud_PNG6.png");
 }
 
 h1, h2, h3, h4 {
